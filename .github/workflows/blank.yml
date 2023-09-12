@@ -33,7 +33,7 @@ jobs:
         git remote add https://sathyapinreddy@dev.azure.com/sathyapinreddy/Dot-Net-Demo/_git/synctest
         #git fetch 
         #git merge test/main 
-        
+        git remote -v
         git pull https://sathyapinreddy@dev.azure.com/sathyapinreddy/Dot-Net-Demo/_git/synctest
         git push https://sathyapinreddy@dev.azure.com/sathyapinreddy/Dot-Net-Demo/_git/synctest
         #git commit -am "testing the files to test repo"
