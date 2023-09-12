@@ -1,0 +1,42 @@
+name: sathya-test (Windows Runner)
+
+on:
+  push:
+    branches:
+      - main  # Change this to your main branch name
+
+jobs:
+  sync:
+    runs-on: self-hosted  # Use a Windows runner
+
+    env:
+      AZURE_REPO_USERNAME: ${{ secrets.AZUSERNAME }}
+      AZURE_PAT: ${{ secrets.AZUREPAT }}
+      AZURE_REPO_URL: https://sathyapinreddy@dev.azure.com/sathyapinreddy/Dot-Net-Demo/_git/synctest
+      TARGET_BRANCH: main  # Change to your target branch
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Git
+      run: |
+        git config user.name "${{ secrets.AZUSERNAME }}"
+        git config user.email "${{ secrets.AZUSERNAME }}"
+    - name: Push to Azure Repository
+      run: |
+        
+        
+        #git fetch --unshallow https://GTApps-ADO-Commercial@dev.azure.com/GTApps-ADO-Commercial/GTApps-ADO-Test/_git/GTApps-ADO-Test-3
+        #git remote remove https://GTApps-ADO-Commercial@dev.azure.com/GTApps-ADO-Commercial/GTApps-ADO-Test/_git/GTApps-ADO-Test-3
+        #git init
+        git remote add https://sathyapinreddy@dev.azure.com/sathyapinreddy/Dot-Net-Demo/_git/synctest
+        #git fetch 
+        #git merge test/main 
+        
+        git pull https://sathyapinreddy@dev.azure.com/sathyapinreddy/Dot-Net-Demo/_git/synctest
+        git push 
+        #git commit -am "testing the files to test repo"
+      
+    - name: Clean up
+      run: git remote remove https://sathyapinreddy@dev.azure.com/sathyapinreddy/Dot-Net-Demo/_git/synctest 
