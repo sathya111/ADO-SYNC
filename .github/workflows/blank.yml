@@ -7,7 +7,7 @@ on:
 
 jobs:
   sync:
-    runs-on: self-hosted  # Use a Windows runner
+    runs-on: ubuntu-latest  # Use a Windows runner
 
     env:
       AZURE_REPO_USERNAME: ${{ secrets.AZUSERNAME }}
