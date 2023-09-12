@@ -28,9 +28,10 @@ jobs:
         
         git remote add origin https://sathyapinreddy@dev.azure.com/sathyapinreddy/Dot-Net-Demo/_git/synctest
         git remote -v
-        git pull origin
-        git push origin 
+        git fetch origin
+        git merge origin origin/main
+        git push origin main
     
       
     - name: Clean up
-      run: git remote remove https://sathyapinreddy@dev.azure.com/sathyapinreddy/Dot-Net-Demo/_git/synctest 
+      run: git remote remove origin 
