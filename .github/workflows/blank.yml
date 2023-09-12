@@ -26,17 +26,11 @@ jobs:
     - name: Push to Azure Repository
       run: |
         
-        
-        #git fetch --unshallow https://GTApps-ADO-Commercial@dev.azure.com/GTApps-ADO-Commercial/GTApps-ADO-Test/_git/GTApps-ADO-Test-3
-        #git remote remove https://GTApps-ADO-Commercial@dev.azure.com/GTApps-ADO-Commercial/GTApps-ADO-Test/_git/GTApps-ADO-Test-3
-        #git init
-        git remote add https://sathyapinreddy@dev.azure.com/sathyapinreddy/Dot-Net-Demo/_git/synctest
-        #git fetch 
-        #git merge test/main 
+        git remote add origin https://sathyapinreddy@dev.azure.com/sathyapinreddy/Dot-Net-Demo/_git/synctest
         git remote -v
-        git pull https://sathyapinreddy@dev.azure.com/sathyapinreddy/Dot-Net-Demo/_git/synctest
-        git push https://sathyapinreddy@dev.azure.com/sathyapinreddy/Dot-Net-Demo/_git/synctest
-        #git commit -am "testing the files to test repo"
+        git pull origin
+        git push origin 
+    
       
     - name: Clean up
       run: git remote remove https://sathyapinreddy@dev.azure.com/sathyapinreddy/Dot-Net-Demo/_git/synctest 
